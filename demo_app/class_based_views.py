@@ -32,6 +32,8 @@ class Crud(APIView):
         return Response("deleted",status=status.HTTP_204_NO_CONTENT)
     
     def put(self, request, id, format=None):
+
+        
         obj = Entry.objects.get(id=id)
         serializer = DemoSerializer(obj, data=request.data)
         if serializer.is_valid():
